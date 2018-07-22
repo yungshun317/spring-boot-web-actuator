@@ -29,22 +29,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <!-- Get the /actuator endpoint -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-hateoas</artifactId>
+            <artifactId>spring-boot-starter-hateoas</artifactId>
         </dependency>
-        <!-- Get the Actuator Documents -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-actuator-docs</artifactId>
-        </dependency>
-        <!--
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        -->
         <!--
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -55,25 +43,27 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <!-- Database -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
         <!-- Flyway -->
-        <!--
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
         </dependency>
-        -->
         <!-- Liquibase -->
         <!--
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
-        </dependency>
-        -->
-        <!--
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
         </dependency>
         -->
         <dependency>
