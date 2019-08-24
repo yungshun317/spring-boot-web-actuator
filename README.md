@@ -2,6 +2,8 @@
 
 [![Powered by Spring](https://img.shields.io/badge/Powered%20by-Spring-blue.svg)](https://img.shields.io/badge/Powered%20by-Spring-blue.svg) [![Made with JAVA](https://img.shields.io/badge/Made%20with-JAVA-red.svg)](https://img.shields.io/badge/Made%20with-JAVA-red.svg) [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+The goal of this project is learning how to use Actuator to monitor the Spring Boot Application. Also, we are going to discuss custom metrics with Micrometer and perform database migrations with Flyway or Liquibase.
+
 ## spring-boot-starter-actuator
 
 In essence, Actuator brings production-ready features to our application. Monitoring our app, gathering metrics, understanding traffic or the state of our database becomes trivial with this dependency.
@@ -87,7 +89,7 @@ But you must send a POST request not a GET operation.
 
 ## Flyway
 
-You can get full control of your database by versioning your schemas using database migration scripts with Flyway.
+You can get full control of your database by versioning your schemas using database migration scripts with Flyway. Both Flyway and Liquibase implement the concept of **evolutionary database**.
 
 Create 2 `.sql` files in the `resources/db/migration` directory. The first one, `V1__init.sql`, defines the table schema, creates the table, and inserts one record.
 ```sql
@@ -186,17 +188,20 @@ Now go to `http://localhost:8080/actuator/liquibase`, you can see:
 {"contexts":{"application":{"liquibaseBeans":{"liquibase":{"changeSets":[{"author":"mrfood","changeLog":"classpath:/db/changelog/db.changelog-master.yaml","comments":"","contexts":[],"dateExecuted":"2019-08-24T08:53:25.225Z","deploymentId":"6636805203","description":"createTable tableName=person","execType":"EXECUTED","id":"1","labels":[],"checksum":"7:b8f2ae9c88deabd32666dff9bc5d7f5d","orderExecuted":1,"tag":null},{"author":"mrfood","changeLog":"classpath:/db/changelog/db.changelog-master.yaml","comments":"","contexts":[],"dateExecuted":"2019-08-24T08:53:25.232Z","deploymentId":"6636805203","description":"insert tableName=person","execType":"EXECUTED","id":"2","labels":[],"checksum":"7:febbfe7873884e5e1e8f309ad353f5a0","orderExecuted":2,"tag":null}]}},"parentId":null}}}
 ```
 
-## Up & Running
+## Tech
+The tech stack I use in this project:
+* [IntelliJ](https://www.jetbrains.com/idea/) - a Java integrated development environment (IDE) for developing computer software developed by JetBrains.
+* [Spring Boot](http://spring.io/projects/spring-boot) - a new way to create Spring applications with ease.
+* [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready) - provides all of Spring Boot's production-ready features.
+* [Micrometer](https://spring.io/blog/2018/03/16/micrometer-spring-boot-2-s-new-application-metrics-collector) - Spring Boot 2's new application metrics collector.
+* [Flyway](https://flywaydb.org/) - provides version control for databases, robust schema evolution across all environments with ease, pleasure and plain SQL.
+* [Liquibase](https://www.liquibase.org/) - the leading open source database change and deployment solution providing a database-independent way to deliver fast, safe, repeatable database deployments.
 
+## Todos
 
+Metrics and database migrations are important features in the production environment.
+* Spring Boot Actuator metrics monitoring with Prometheus and Grafana in Kubernetes. Refer to this [post](https://www.callicoder.com/spring-boot-actuator-metrics-monitoring-dashboard-prometheus-grafana/).
+* Create production-grade standards for building Spring Boot RESTful APIs, including modules such as Actuator, HATEOAS, Swagger, Redis, etc. 
 
-
-
-
-
-
-
-
-
-
-
+## License
+[Spring Boot Web Actuator](https://github.com/yungshun317/spring-boot-web-actuator) is released under the [MIT License](https://opensource.org/licenses/MIT) by [yungshun317](https://github.com/yungshun317).
